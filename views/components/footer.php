@@ -1,7 +1,7 @@
-<footer class="container fixed mr-0 my-0 is-fluid has-background-link-light">
+<footer class="container fixed mr-0 my-0 is-fluid has-background-white is-hidden-mobile has-text-centered">
     <p>Mentions légales</p>
 </footer>
 
-<script src="../assets/script/navbar.js"></script>
+
 </body>
 </html>

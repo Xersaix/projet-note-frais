@@ -5,25 +5,23 @@
 <!-- Main container -->
 <main class="container mb-0 my-0 pb-0 px-1 is-fluid ">
     <!--Columns container -->
-    <div class="columns my-0  is-flex is-flex-direction-row">
+    <div class="columns my-0  is-flex is-flex-direction-column">
         <!-- Sidebar conlumn -->
+      
 
-
-        <?php  if ($connected == true) {include "components/sidebar.php";}  ?>
+            <?php  if ($connected == true) {include "components/sidebar.php";}  ?>
 
         <!-- Content column -->
         <div class="column is-rest">
 
-            <div class="columns is-centered">
-                <div class="column is-half">
-                    
-                </div>
-            </div>
+        <div class="columns is-centered">
+
+        <?php  if ($connected == false) {include "components/connection-form.php";}  ?>
+        </div>
 
 
         </div>
     </div>
-
-</main>
+    </main>
 <?php include "components/sidebar-mobile.php" ?>
 <?php include "components/footer.php" ?>

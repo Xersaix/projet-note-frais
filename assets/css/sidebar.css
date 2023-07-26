@@ -1,0 +1,15 @@
+.sidebar-color
+{
+    background-color: #1E434C;
+}
+
+.sidebar-mobile
+{
+    background-color: #1E434C;
+    height:10%;
+}
+
+.content{
+
+    overflow-y: auto;
+}

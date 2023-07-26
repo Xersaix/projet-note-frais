@@ -1,4 +1,5 @@
-<?php 
+<?php
+include_once "../models/Employer.php";
 session_start();
 $connected = false;
 if(!isset($_SESSION["id"])){
@@ -10,9 +11,10 @@ if(!isset($_SESSION["id"])){
 
 
 
-include "../views/home.php";
+$list = Employer::getEmployerList();
 
 
+include "../views/employer-list.php";
 
 
 ?>

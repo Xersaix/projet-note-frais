@@ -1,9 +1,12 @@
 nav{
 
-    height:10%;
+    height:8%;
     position:fixed;
     border-bottom:2px solid #B5B5B5;
 
+}
+nav .logo{
+    color: #1E434C;
 }
 
 nav .columns,.column{

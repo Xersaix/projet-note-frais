@@ -1,9 +1,9 @@
 body main
 {
 
-   height:80%;
+   height:82%;
    overflow-x:hidden;
-   overflow-y: auto;
+   overflow-y: hidden;
 
    
 }
@@ -22,3 +22,17 @@ main .columns .column{
 
 }
 
+.primary-color{
+    background-color: #1E434C;
+}
+
+.table-container{
+    overflow-x: auto;
+}
+.is-rest{
+    overflow-y: auto;
+}
+table button{
+    background-color: transparent;
+    border: none;
+}
