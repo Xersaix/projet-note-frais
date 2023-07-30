@@ -8,6 +8,10 @@ if(!isset($_SESSION["id"])){
     header('Location: controller-connection.php');
 }else{
     $connected = true;
+    if($_SESSION["admin"] == 1)
+    {
+        header('Location: controller-home.php'); 
+    }
 }
 
 
@@ -97,10 +101,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     }
     if(isset($_FILES["file"]))
     {
-        $finfo = new finfo(FILEINFO_MIME);
 
-                var_dump($finfo->file($_FILES["file"]["tmp_name"]));
-         if(!str_contains($finfo->file($_FILES["file"]["tmp_name"]), "image"))
+
+        $finfo = new finfo(FILEINFO_MIME);
+       if($_FILES["file"]["error"] != 0)
+       {
+
+       $errors["file"] = $_FILES["file"]["error"];
+       }else{
+
+        if(!str_contains($finfo->file($_FILES["file"]["tmp_name"]), "image"))
        {
         $errors["file"] = "Le fichier n'est pas une image";
        }
@@ -115,18 +125,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         $errors["file"] = "Le fichier est plus grand que 5mo";
        }
 
-       if($_FILES["file"]["error"] != 0)
-       {
-
-       $errors["file"] = $_FILES["file"]["error"];
        }
+   
+
+
+
 
     }
 
 if(count($errors) == 0)
 {
 
-   
+    $img_file = file_get_contents($_FILES["file"]["tmp_name"]);
     $data = base64_encode($img_file);
     Expense::addExpense($expense_date,$price_TTC,$price_HT,$expense_reason,$expense_type,$_SESSION["id"],$data);
     $show = true;

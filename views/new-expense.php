@@ -13,7 +13,7 @@
 
         <!-- Content column -->
         <div class="column is-rest">
-
+        <a href="controller-employer-expense-list.php" class="icon-color"><i class="bi bi-arrow-left-circle-fill is-size-3 "></i></a>
             <div class="columns is-centered">
                 <div class="column is-half">
                     <!-- Notification Success -->
@@ -96,7 +96,7 @@
                                 </span></label>
                             <div class="control">
                                 <input class="input" type="file"
-                                    value="<?= htmlspecialchars($_POST['file'] ?? '') ?>"
+                                   
                                     name="file">
                             </div>
                         </div>

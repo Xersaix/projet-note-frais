@@ -13,7 +13,7 @@
 
         <!-- Content column -->
         <div class="column is-rest">
-
+             <a href="controller-employer-expense-list.php" class="icon-color"><i class="bi bi-arrow-left-circle-fill is-size-3 "></i></a>
             <div class="columns is-centered">
                 <div class="column is-half">
                     <!-- Notification Success -->
@@ -24,10 +24,12 @@
                     </div>
                     <?php }?>
 
-                    
+                    <?php
+                        echo '<img src="' . $base64ImageSrc . '" alt="Image"/>';
+                    ?>
                     <!-- Form -->
 
-                    <form action="" method="POST">
+                    <form action="" method="POST" enctype="multipart/form-data">
                         <div class="field">
                             <label class="label">Date de paiement <span class="has-text-danger">
                                     <?= $errors["date"] ?? "" ?>
@@ -88,7 +90,17 @@
                                     name="price_ht">
                             </div>
                         </div>
-
+                                                <!-- File -->
+                                                <div class="field">
+                            <label class="label">Justificatif <span class="has-text-danger">
+                                    <?= $errors["file"] ?? "" ?>
+                                </span></label>
+                            <div class="control">
+                                <input class="input" type="file"
+                                   
+                                    name="file">
+                            </div>
+                        </div>
                         <div class="field">
                             <div class="control has-text-centered my-3">
                                 <button class="button is-primary is-outlined" type="submit">Modifier</button>

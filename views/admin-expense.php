@@ -13,7 +13,7 @@
 
         <!-- Content column -->
         <div class="column is-rest">
-
+        <a href="controller-admin-expense-list.php?id=<?=$expense["id_employer"] ?>" class="icon-color"><i class="bi bi-arrow-left-circle-fill is-size-3 "></i></a>
             <div class="columns is-centered">
                 <div class="column is-half">
                     <!-- Notification Success -->

@@ -24,12 +24,14 @@ class Expense
     
     }
 
-    public static function updateExpense($date,$ttc,$ht,$reason,$type,$employer,$id)
+
+
+    public static function updateExpense($date,$ttc,$ht,$reason,$type,$employer,$id,$img)
     {
         $conn = Database::connectDatabase();
     
         $stmt = $conn->prepare("UPDATE `expense` SET `payment_date` = :date, `payment_ttc` = :ttc, `payment_ht` = :ht, `reason` = :reason,
-           `id_expense_type` = :type , `id_employer` = :employer, `id_status` = 1 WHERE id = :id ");
+           `id_expense_type` = :type , `id_employer` = :employer, `id_status` = 1 , `image` = :img   WHERE id = :id ");
     
         $stmt->bindParam(':date', $date);
         $stmt->bindParam(':ttc', $ttc);
@@ -38,10 +40,47 @@ class Expense
         $stmt->bindParam(':type', $type);
         $stmt->bindParam(':employer', $employer);
         $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':img', $img);
         $stmt->execute();
         $conn = null;
     
     }
+
+    public static function getNumberExpenseStats($status)
+    {
+        $conn = Database::connectDatabase();
+    
+        $stmt = $conn->prepare("SELECT COUNT(*) AS number
+        FROM expense
+        WHERE id_status = :status");
+    
+        $stmt->bindParam(':status', $status);
+        $stmt->execute();
+        $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $result =  $stmt->fetch();
+        $conn = null;
+        return $result;
+    
+    } 
+    public static function getNumberExpenseStatsE($status,$id)
+    {
+        $conn = Database::connectDatabase();
+    
+        $stmt = $conn->prepare("SELECT COUNT(*) AS number
+        FROM expense
+        WHERE id_status = :status AND id_employer = :id");
+    
+        $stmt->bindParam(':status', $status);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $result =  $stmt->fetch();
+        $conn = null;
+        return $result;
+    
+    } 
+
+
     public static function validExpense($date,$id)
     {
         $conn = Database::connectDatabase();

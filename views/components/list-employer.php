@@ -25,7 +25,11 @@
                 <td class="is-hidden-mobile"><?= $value["email"] ?> </td>
                 <td class="is-hidden-mobile"><?= $value["phone"] ?> </td>
                 <td><?= $value["number_of_expenses"] ?></td>
-                <td class="has-text-centered"><a href="controller-admin-expense-list.php?id=<?= $value['employer_id'] ?>"><i class="bi bi-three-dots"></i></a></td>
+                <td class="has-text-centered">
+                  <?php if($value["number_of_expenses"] != 0) { ?>
+                  <a href="controller-admin-expense-list.php?id=<?= $value['employer_id'] ?>"><i class="bi bi-three-dots"></i></a>
+                <?php } ?>
+                </td>
               </tr>
 
 

@@ -9,6 +9,10 @@ if(!isset($_SESSION["id"])){
     header('Location: controller-connection.php');
 }else{
     $connected = true;
+    if($_SESSION["admin"] == 0)
+    {
+        header('Location: controller-home.php'); 
+    }
 }
 
 $expense = Expense::getExpense($_GET["id"]);

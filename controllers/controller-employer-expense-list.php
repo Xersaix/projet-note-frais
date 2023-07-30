@@ -8,6 +8,10 @@ if(!isset($_SESSION["id"])){
     header('Location: controller-connection.php');
 }else{
     $connected = true;
+    if($_SESSION["admin"] == 1)
+    {
+        header('Location: controller-home.php'); 
+    }
 }
 
 

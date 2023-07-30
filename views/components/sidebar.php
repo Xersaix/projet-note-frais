@@ -2,9 +2,9 @@
 
 
 <aside class="menu ">
-<div class="column is-narrow sidebar-color is-hidden-mobile">
+<div class="column is-narrow side-menu sidebar-color is-hidden-mobile">
     <ul class="menu-list has-text-white">
-    <p class=" ml-3  mb-3"><i class="bi bi-wallet mr-2 is-size-4"></i>Dépense</p>
+    <a href="controller-home.php"class=" has-text-white ml-3  mb-3"><i class="bi bi-house-door-fill mr-2 is-size-4"></i>Accueil</a>
     <!-- User -->
     <?php if(!$_SESSION["admin"]) { ?>
     <li><a href="controller-new-expense.php"class="has-text-white"><i class="bi bi bi-plus-circle is-size-4 mr-2 has-text-white"></i>Nouvelle note</a></li>
